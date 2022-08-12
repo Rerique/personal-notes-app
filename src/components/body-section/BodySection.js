@@ -4,11 +4,18 @@ import ActiveNote from '../notes-section/ActiveNote';
 import ArchiveNote from '../notes-section/ArchiveNote';
 
 function BodySection({ notes, addNote, onDelete, onArchive }) {
+  const activeNotes = notes.filter(note => {
+    return note.archived === false;
+  });
+
+  const archivedNotes = notes.filter(note => {
+    return note.archived === true;
+  });
   return (
     <div className="note-app__body">
       <NotesInput addNote={addNote} />
-      <ActiveNote notes={notes} onDelete={onDelete} onArchive={onArchive} />
-      <ArchiveNote onDelete={onDelete} />
+      <ActiveNote notes={activeNotes} onDelete={onDelete} onArchive={onArchive} />
+      <ArchiveNote notes={archivedNotes} onDelete={onDelete} />
     </div>
   );
 }
