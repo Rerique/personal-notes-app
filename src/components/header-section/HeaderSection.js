@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteSearch from './NoteSearch';
 
-function Header(params) {
+function HeaderSection(params) {
   return (
     <div className="note-app__header">
       <h1>Notes</h1>
@@ -10,4 +10,4 @@ function Header(params) {
   );
 }
 
-export default Header;
+export default HeaderSection;
