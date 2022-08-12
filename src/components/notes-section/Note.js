@@ -1,7 +1,8 @@
 import React from 'react';
 import { showFormattedDate } from '../../utils/data';
+import DeleteButton from './DeleteButton';
 
-function Note({ title, body, createdAt }) {
+function Note({ id, title, body, createdAt, onDelete }) {
   return (
     <div className="note-item">
       <div className="note-item__content">
@@ -10,7 +11,7 @@ function Note({ title, body, createdAt }) {
         <p className="note-item__body">{body}</p>
       </div>
       <div className="note-item__action">
-        <button className="note-item__delete-button">Delete</button>
+        <DeleteButton id={id} onDelete={onDelete} />
         <button className="note-item__archive-button">Arsipkan</button>
       </div>
     </div>
