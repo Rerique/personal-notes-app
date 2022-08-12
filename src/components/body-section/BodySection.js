@@ -3,11 +3,11 @@ import NotesInput from '../input-section/NotesInput';
 import ActiveNote from '../notes-section/ActiveNote';
 import ArchiveNote from '../notes-section/ArchiveNote';
 
-function BodySection(params) {
+function BodySection({ notes, addNote }) {
   return (
     <div className="note-app__body">
-      <NotesInput />
-      <ActiveNote />
+      <NotesInput addNote={addNote} />
+      <ActiveNote notes={notes} />
       <ArchiveNote />
     </div>
   );

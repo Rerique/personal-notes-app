@@ -1,20 +1,17 @@
 import React from 'react';
 import Note from './Note';
 
-class ActiveNote extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-  render() {
-    return (
-      <>
-        <h2>Catatan Aktif</h2>
-        <div className="notes-list">
-          <Note />
-        </div>
-      </>
-    );
-  }
+function ActiveNote({ notes }) {
+  return (
+    <>
+      <h2>Catatan Aktif</h2>
+      <div className="notes-list">
+        {notes.map(note => (
+          <Note key={note.id} id={note.id} {...note} />
+        ))}
+      </div>
+    </>
+  );
 }
 
 export default ActiveNote;
