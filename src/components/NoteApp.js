@@ -1,6 +1,6 @@
 import React from 'react';
-import BodySection from './body-section/BodySection';
-import HeaderSection from './header-section/HeaderSection';
+import BodySection from './BodySection';
+import HeaderSection from './HeaderSection';
 import { getInitialData } from '../utils/data';
 
 class NoteApp extends React.Component {

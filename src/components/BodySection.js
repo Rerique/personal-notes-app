@@ -1,6 +1,6 @@
 import React from 'react';
-import NotesInput from '../input-section/NotesInput';
-import NotesList from '../notes-section/NotesList';
+import NotesInput from './NotesInput';
+import NotesList from './notes-section/NotesList';
 
 function BodySection({ notes, addNote, onDelete, onArchive }) {
   return (
