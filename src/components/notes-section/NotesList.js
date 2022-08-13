@@ -1,12 +1,14 @@
 import React from 'react';
 import Note from './Note';
 
-function NotesList({ notes, onDelete, onArchive }) {
-  const activeNotes = notes.filter(note => {
+function NotesList({ notes, onDelete, onArchive, keyword }) {
+  const filteredNotes = notes.filter(note => note.title.toLowerCase().includes(keyword.toLowerCase()));
+
+  const activeNotes = filteredNotes.filter(note => {
     return note.archived === false;
   });
 
-  const archivedNotes = notes.filter(note => {
+  const archivedNotes = filteredNotes.filter(note => {
     return note.archived === true;
   });
   return (

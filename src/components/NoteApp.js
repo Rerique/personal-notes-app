@@ -9,11 +9,13 @@ class NoteApp extends React.Component {
 
     this.state = {
       notes: getInitialData(),
+      keyword: '',
     };
 
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onArchiveHandler = this.onArchiveHandler.bind(this);
+    this.onSearchHandler = this.onSearchHandler.bind(this);
   }
 
   onAddNoteHandler({ title, body }) {
@@ -44,11 +46,17 @@ class NoteApp extends React.Component {
     this.setState({ notes });
   }
 
+  onSearchHandler(searchInput) {
+    this.setState(() => {
+      return { keyword: searchInput };
+    });
+  }
+
   render() {
     return (
       <>
-        <HeaderSection />
-        <BodySection notes={this.state.notes} addNote={this.onAddNoteHandler} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} />
+        <HeaderSection onSearch={this.onSearchHandler} />
+        <BodySection notes={this.state.notes} addNote={this.onAddNoteHandler} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} keyword={this.state.keyword} />
       </>
     );
   }
