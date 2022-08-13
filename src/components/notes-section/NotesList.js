@@ -12,17 +12,26 @@ function NotesList({ notes, onDelete, onArchive }) {
   return (
     <>
       <h2>Catatan Aktif</h2>
-      <div className="notes-list">
-        {activeNotes.map(note => (
-          <Note key={note.id} id={note.id} onDelete={onDelete} onArchive={onArchive} {...note} />
-        ))}
-      </div>
+      {activeNotes.length > 0 ? (
+        <div className="notes-list">
+          {activeNotes.map(note => (
+            <Note key={note.id} id={note.id} onDelete={onDelete} onArchive={onArchive} {...note} />
+          ))}
+        </div>
+      ) : (
+        <p className="notes-list__empty-message">Tidak ada catatan</p>
+      )}
+
       <h2>Arsip</h2>
-      <div className="notes-list">
-        {archivedNotes.map(note => (
-          <Note key={note.id} id={note.id} onDelete={onDelete} {...note} />
-        ))}
-      </div>
+      {archivedNotes.length > 0 ? (
+        <div className="notes-list">
+          {archivedNotes.map(note => (
+            <Note key={note.id} id={note.id} onDelete={onDelete} onArchive={onArchive} {...note} />
+          ))}
+        </div>
+      ) : (
+        <p className="notes-list__empty-message">Tidak ada catatan</p>
+      )}
     </>
   );
 }
