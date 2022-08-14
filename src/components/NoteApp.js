@@ -10,12 +10,14 @@ class NoteApp extends React.Component {
     this.state = {
       notes: getInitialData(),
       keyword: '',
+      navbar: 'addNote',
     };
 
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onArchiveHandler = this.onArchiveHandler.bind(this);
     this.onSearchHandler = this.onSearchHandler.bind(this);
+    this.onSelectNavbarHandler = this.onSelectNavbarHandler.bind(this);
   }
 
   onAddNoteHandler({ title, body }) {
@@ -52,11 +54,19 @@ class NoteApp extends React.Component {
     });
   }
 
+  onSelectNavbarHandler() {
+    this.setState(() => {
+      return { navbar: arguments[0] };
+    });
+    console.log(arguments[0]);
+    console.log(this.state.navbar);
+  }
+
   render() {
     return (
       <>
-        <HeaderSection onSearch={this.onSearchHandler} />
-        <BodySection notes={this.state.notes} addNote={this.onAddNoteHandler} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} keyword={this.state.keyword} />
+        <HeaderSection onSelect={this.onSelectNavbarHandler} />
+        <BodySection notes={this.state.notes} addNote={this.onAddNoteHandler} onDelete={this.onDeleteHandler} onArchive={this.onArchiveHandler} keyword={this.state.keyword} onSearch={this.onSearchHandler} navbar={this.state.navbar} />
       </>
     );
   }

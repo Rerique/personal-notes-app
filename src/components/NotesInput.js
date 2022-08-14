@@ -33,7 +33,7 @@ class NotesInput extends React.Component {
 
   render() {
     return (
-      <div className="note-input">
+      <div className="note-input" id="add-note">
         <h2>Buat Catatan</h2>
         <form onSubmit={this.onSubmitEventHandler}>
           <p className="note-input__title__char-limit">Sisa Karakter: {50 - this.state.title.length}</p>

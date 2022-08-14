@@ -10,7 +10,8 @@ body {
   color: white;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 12px;
   margin: 12px 0;
   font-family: 'Inter', sans-serif;
@@ -20,7 +21,8 @@ input, textarea {
   border-radius: 4px;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: #aaa;
   font-weight: bold;
 }
@@ -39,7 +41,6 @@ input::placeholder, textarea::placeholder {
   color: white;
 }
 
-
 .note-app__body {
   max-width: 1000px;
   margin: 16px auto;
@@ -57,7 +58,8 @@ input::placeholder, textarea::placeholder {
   margin-bottom: 48px;
 }
 
-.note-input input, .note-input textarea {
+.note-input input,
+.note-input textarea {
   display: block;
   width: 100%;
 }
@@ -136,7 +138,8 @@ input::placeholder, textarea::placeholder {
   display: flex;
 }
 
-.note-item__delete-button,.note-item__archive-button {
+.note-item__delete-button,
+.note-item__archive-button {
   display: block;
   width: 100%;
   background-color: transparent;
@@ -169,6 +172,23 @@ input::placeholder, textarea::placeholder {
   .notes-list {
     grid-template-columns: 1fr 1fr;
   }
+
+  .note-app__navigation {
+    min-width: 300px;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+  }
+
+  .note-app__navigation-link {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+  }
+
+  .note-app__navigation-link:hover {
+    color: #aaa;
+  }
 }
 
 @media only screen and (min-width: 800px) {
@@ -176,8 +196,23 @@ input::placeholder, textarea::placeholder {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .note-search input {
+  .note-app__navigation {
     min-width: 400px;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+  }
+
+  .note-app__navigation-link {
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: transparent;
+  }
+
+  .note-app__navigation-link:hover {
+    color: #aaa;
   }
 }
 
