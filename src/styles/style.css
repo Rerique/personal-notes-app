@@ -55,6 +55,26 @@ textarea::placeholder {
   font-weight: normal;
   margin: 16px 0;
 }
+.note-app__navigation {
+  min-width: 400px;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.note-app__navigation-link {
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  border: none;
+  background-color: transparent;
+  padding: 20px;
+}
+
+.note-app__navigation-link:hover {
+  background-color: #aaa;
+  padding: 20px;
+}
 
 .note-input {
   margin: 0 auto;
@@ -108,9 +128,11 @@ textarea::placeholder {
   opacity: 0;
   transition: all 0.35s;
   overflow-y: auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: auto;
+  grid-row: auto;
+  gap: 16px;
+  margin-bottom: 48px;
 }
 
 .notes-list::-webkit-scrollbar {
@@ -134,8 +156,8 @@ textarea::placeholder {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  margin: 10px 15px;
-  width: 280px;
+  margin: 0;
+  /* width: 280px; */
   height: 300px;
 }
 
@@ -251,45 +273,23 @@ textarea::placeholder {
 }
 
 @media only screen and (min-width: 500px) {
+  .notes-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .note-app__navigation {
     min-width: 300px;
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-  }
-
-  .note-app__navigation-link {
-    text-decoration: none;
-    color: white;
-    background-color: transparent;
-    padding: 20px;
-  }
-
-  .note-app__navigation-link:hover {
-    background-color: #aaa;
-    padding: 20px;
   }
 }
 
 @media only screen and (min-width: 800px) {
-  .note-app__navigation {
-    min-width: 400px;
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
+  .notes-list {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .note-app__navigation-link {
-    font-size: 16px;
-    text-decoration: none;
-    color: white;
-    border: none;
-    background-color: transparent;
-    padding: 20px;
-  }
-
-  .note-app__navigation-link:hover {
-    background-color: #aaa;
-    padding: 20px;
+@media only screen and (min-width: 800px) {
+  .notes-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
