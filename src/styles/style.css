@@ -43,8 +43,12 @@ textarea::placeholder {
 
 .note-app__body {
   max-width: 1000px;
-  margin: 16px auto;
+  margin: 0 auto;
   padding: 12px;
+}
+
+.note-app__search {
+  width: 550px;
 }
 
 .note-app__body h2 {
@@ -92,15 +96,35 @@ textarea::placeholder {
 }
 
 .notes-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(min-content, max-content);
-  gap: 16px;
-  margin-bottom: 48px;
+  width: 100%;
+  height: 95%;
+  position: absolute;
+  z-index: 1;
+  top: 45px;
+  left: 0;
+  padding: 20px;
+  color: white;
+  border: 1px solid #aaa;
+  opacity: 0;
+  transition: all 0.35s;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.notes-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.notes-list::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 5px;
 }
 
 .notes-list__empty-message {
-  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
   color: #aaa;
 }
 
@@ -110,6 +134,9 @@ textarea::placeholder {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  margin: 10px 15px;
+  width: 280px;
+  height: 300px;
 }
 
 .note-item__content {
@@ -168,11 +195,62 @@ textarea::placeholder {
   color: #b00020;
 }
 
-@media only screen and (min-width: 500px) {
-  .notes-list {
-    grid-template-columns: 1fr 1fr;
-  }
+.tabs {
+  position: relative;
+  height: 490px;
+}
 
+.tabs::before,
+.tabs::after {
+  content: '';
+  display: table;
+}
+
+.tabs::after {
+  clear: both;
+}
+
+.tab {
+  float: left;
+}
+
+.tab-switch {
+  display: none;
+}
+
+.tab-label {
+  position: relative;
+  display: block;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 30px;
+  color: white;
+  cursor: pointer;
+  top: -12px;
+  transition: all 0.25s;
+}
+
+.tab-label:hover {
+  top: -15px;
+  transition: top 0.25s;
+}
+
+.tab-switch:checked + .tab-label {
+  background: #aaa;
+  color: white;
+  border-bottom: 0;
+  transition: all 0.35s;
+  z-index: 1;
+  top: -10px;
+}
+
+.tab-switch:checked + label + .notes-list {
+  z-index: 2;
+  opacity: 1;
+  transition: all 0.35s;
+}
+
+@media only screen and (min-width: 500px) {
   .note-app__navigation {
     min-width: 300px;
     display: flex;
@@ -184,18 +262,16 @@ textarea::placeholder {
     text-decoration: none;
     color: white;
     background-color: transparent;
+    padding: 20px;
   }
 
   .note-app__navigation-link:hover {
-    color: #aaa;
+    background-color: #aaa;
+    padding: 20px;
   }
 }
 
 @media only screen and (min-width: 800px) {
-  .notes-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .note-app__navigation {
     min-width: 400px;
     display: flex;
@@ -209,15 +285,11 @@ textarea::placeholder {
     color: white;
     border: none;
     background-color: transparent;
+    padding: 20px;
   }
 
   .note-app__navigation-link:hover {
-    color: #aaa;
-  }
-}
-
-@media only screen and (min-width: 800px) {
-  .notes-list {
-    grid-template-columns: repeat(4, 1fr);
+    background-color: #aaa;
+    padding: 20px;
   }
 }

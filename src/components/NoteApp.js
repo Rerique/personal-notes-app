@@ -58,8 +58,6 @@ class NoteApp extends React.Component {
     this.setState(() => {
       return { navbar: arguments[0] };
     });
-    console.log(arguments[0]);
-    console.log(this.state.navbar);
   }
 
   render() {
