@@ -15,10 +15,10 @@ function NotesList({ notes, onDelete, onArchive, keyword, onSearch }) {
     <>
       <input className="note-app__search" type="text" placeholder="Cari catatan.." onChange={event => onSearch(event.target.value)} />
 
-      <div className="tabs">
-        <div className="tab">
-          <input type="radio" name="css-tabs" id="tab-1" defaultChecked className="tab-switch" />
-          <label htmlFor="tab-1" className="tab-label">
+      <div className="note-tabs">
+        <div className="note-tabs__item">
+          <input type="radio" name="note-list-tabs" id="tab-1" defaultChecked className="note-tabs__switch" />
+          <label htmlFor="tab-1" className="note-tabs__label">
             <h2>Catatan Aktif</h2>
           </label>
           {activeNotes.length > 0 ? (
@@ -31,9 +31,9 @@ function NotesList({ notes, onDelete, onArchive, keyword, onSearch }) {
             <p className="notes-list notes-list__empty-message">Tidak ada catatan</p>
           )}
         </div>
-        <div className="tab">
-          <input type="radio" name="css-tabs" id="tab-2" className="tab-switch" />
-          <label htmlFor="tab-2" className="tab-label">
+        <div className="note-tabs__item">
+          <input type="radio" name="note-list-tabs" id="tab-2" className="note-tabs__switch" />
+          <label htmlFor="tab-2" className="note-tabs__label">
             <h2>Arsip</h2>
           </label>
           {archivedNotes.length > 0 ? (

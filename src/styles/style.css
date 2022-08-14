@@ -56,25 +56,26 @@ textarea::placeholder {
   font-weight: normal;
   margin: 16px 0;
 }
+
 .note-app__navigation {
-  min-width: 200px;
+  min-width: 250px;
   display: flex;
   justify-content: space-around;
-  list-style: none;
 }
 
 .note-app__navigation-link {
   font-size: 16px;
-  text-decoration: none;
   color: white;
-  border: none;
-  background-color: transparent;
-  padding: 20px;
+}
+.note-app__navigation-label {
+  cursor: pointer;
+}
+.note-app__navigation-switch {
+  display: none;
 }
 
-.note-app__navigation-link:hover {
-  background-color: #aaa;
-  padding: 20px;
+.note-app__navigation-switch:checked + .note-app__navigation-label {
+  border-bottom: 3px solid #aaa;
 }
 
 .note-input {
@@ -114,6 +115,10 @@ textarea::placeholder {
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.note-input button:hover {
+  background-color: #aaa;
 }
 
 .notes-list {
@@ -216,30 +221,30 @@ textarea::placeholder {
   color: #b00020;
 }
 
-.tabs {
+.note-tabs {
   position: relative;
   height: 490px;
 }
 
-.tabs::before,
-.tabs::after {
+.note-tabs::before,
+.note-tabs::after {
   content: '';
   display: table;
 }
 
-.tabs::after {
+.note-tabs::after {
   clear: both;
 }
 
-.tab {
+.note-tabs__item {
   float: left;
 }
 
-.tab-switch {
+.note-tabs__switch {
   display: none;
 }
 
-.tab-label {
+.note-tabs__label {
   position: relative;
   display: block;
   line-height: 40px;
@@ -251,12 +256,12 @@ textarea::placeholder {
   transition: all 0.25s;
 }
 
-.tab-label:hover {
+.note-tabs__label:hover {
   top: -15px;
   transition: top 0.25s;
 }
 
-.tab-switch:checked + .tab-label {
+.note-tabs__switch:checked + .note-tabs__label {
   background: #aaa;
   color: white;
   border-bottom: 0;
@@ -265,7 +270,7 @@ textarea::placeholder {
   top: -10px;
 }
 
-.tab-switch:checked + label + .notes-list {
+.note-tabs__switch:checked + label + .notes-list {
   z-index: 2;
   opacity: 1;
   transition: all 0.35s;

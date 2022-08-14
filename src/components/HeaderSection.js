@@ -4,18 +4,20 @@ function HeaderSection({ onSelect }) {
   return (
     <div className="note-app__header">
       <h1>Notes</h1>
-      <ul className="note-app__navigation">
-        <li>
-          <button className="note-app__navigation-link" onClick={()=> onSelect('addNote')}>
+      <div className="note-app__navigation">
+        <div className="note-app__navigation-link">
+          <input type="radio" name="navbar" id="nav-1" defaultChecked className="note-app__navigation-switch" onClick={() => onSelect('addNote')} />
+          <label htmlFor="nav-1" className="note-app__navigation-label">
             Buat Catatan
-          </button>
-        </li>
-        <li>
-          <button className="note-app__navigation-link" onClick={()=> onSelect('noteList')}>
+          </label>
+        </div>
+        <div className="note-app__navigation-link">
+          <input type="radio" name="navbar" id="nav-2" className="note-app__navigation-switch" onClick={() => onSelect('noteList')} />
+          <label htmlFor="nav-2" className="note-app__navigation-label">
             List Catatan
-          </button>
-        </li>
-      </ul>
+          </label>
+        </div>
+      </div>
     </div>
   );
 }
